@@ -6,6 +6,7 @@ class Node:
 
 
 class LinkedList:
+      
 	def __init__(self):
 
 		# creates empty linked list : head = None
@@ -16,15 +17,12 @@ class LinkedList:
 	def __len__(self):
 		return self.nodecount
 
-
 	# Insertion a new item in Linked List from Head
-	def insert_head(self,value):
+	def insert_head(self,nodedata):
 
-		# creating a new node
-        new_node = Node(value)
+        new_node = Node(nodedata)               # creating a new node
 
-        # create reference
-        new_node.nextnode = self.headnode
+        new_node.nextnode = self.headnode    # create reference
 
         # reassigning Head
         self.headnode = new_node
@@ -61,7 +59,7 @@ class LinkedList:
         # traverse to after_value as current node
         current_node = self.headnode
         while current_node != None:
-            if current_node.nodedata = nodedata:
+            if current_node.nodedata == nodedata:
                 break
             current_node = current_node.nextnode
 
@@ -91,7 +89,7 @@ class LinkedList:
             return f'Empty Linked List'
 
         # logic for removing head node
-        return f' Removed headnode: {self.headnode}''
+        return f' Removed headnode: {self.headnode}'
         self.headnode = self.headnode.nextnode
         self.nodecount -= 1
 
@@ -133,13 +131,13 @@ class LinkedList:
         current_node = self.headnode
 
         while current_node.nextnode != None:
-            if current_node.nextnode.nodedata = nodedata:
+            if current_node.nextnode.nodedata == nodedata:
                 break
             current_node = current_node.nextnode
 
 
         # case1: node with specified node data not found even just after tail node
-        if current_node.nextnode = None:
+        if current_node.nextnode == None:
             return f'Node with the specified node data: {nodedata} not found in the linked list.'
         # case2: node with specified node data  found upto tail node
         else:
@@ -189,4 +187,5 @@ class LinkedList:
             result += str(current_node.nodedata) + '--->'
             current_node = current_node.nextnode
         return result[:-2]
+
 
